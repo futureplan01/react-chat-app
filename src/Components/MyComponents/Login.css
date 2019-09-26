@@ -1,0 +1,68 @@
+
+h1{
+    font-size: 3em;
+}
+#signUpBtn{
+    color: rgb(35, 61, 77);
+    background-color : rgb(161, 193, 129);
+}
+
+#submitBtn{
+    color:rgb(254, 127, 45);
+    background-color :rgb(35, 61, 77);
+}
+#SignUp{
+    background-color: black;
+}
+#submit{
+    min-width:100%
+}
+
+#loginForm{
+    border-width: 2px;
+    border-color: white;
+    border-style: solid;
+    margin: 5%;
+    padding: 5%;
+}
+.textBtn{
+    background:none;
+    border:none;
+}
+.form{
+    margin-top: 7%;
+    margin-bottom: 5%;
+}
+.messages{
+    margin-left: 2%;
+    margin-right: 2%;
+}
+.input{
+    font-size: 22px;
+    margin-top: 2%;
+    text-align: center;
+    width: 50%;
+}
+.chat{
+    color:rgb(35, 61, 77);
+}
+.chatScreen{
+    height:400px;
+    width:100%;
+    overflow: auto;
+    background-color: white;   
+}
+.signUp{
+    border-width: 2px;
+    border-color: white;
+    border-style: solid;
+    margin: 5%;
+    padding: 5%;
+}
+.sender{
+    text-align: right;
+    color: rgb(51, 147, 207);
+}
+.yellow{
+    color: rgb(252,202,70);
+}
