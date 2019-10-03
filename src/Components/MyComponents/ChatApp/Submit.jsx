@@ -1,9 +1,4 @@
 import React, { Component } from "react";
-import openSocket from "socket.io-client";
-import { timingSafeEqual } from "crypto";
-
-let url = window.location.href;
-
 
 
 class Submit extends Component {

@@ -1,15 +1,8 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router } from 'react-router-dom';
-import { Link, Switch, Route } from "react-router-dom";
 import { Redirect } from "react-router";
-import fetch from "isomorphic-fetch";
 import axios from "axios";
-import styles from "./Login.css";
-import SignUp from "./SignUp";
-import Home from "./HomePage";
 import Problem from "./ProblemOccured";
 import Header from "./HeadTail/Header";
-import Footer from "./HeadTail/Footer";
 
 class Login extends Component {
   constructor() {

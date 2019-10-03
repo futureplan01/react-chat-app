@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Redirect } from "react-router";
-import Styles from "./Style.css";
 
 class Header extends Component {
   constructor(){
@@ -13,13 +12,13 @@ class Header extends Component {
   }
   handleSubmit(e){
     e.preventDefault();
-    if (this.props.name == 'Log In') {
+    if (this.props.name === 'Log In') {
       this.setState({ redirect: '/' });
     }
-    else if (this.props.name == 'Sign Up') {
+    else if (this.props.name === 'Sign Up') {
       this.setState({ redirect : '/SignUp' });
     }
-    else if (this.props.name == 'Log Out') {
+    else if (this.props.name === 'Log Out') {
       console.log('Destroy Session');
       axios.get('/api/users/destroySession').then(res => {
         console.log('yo');

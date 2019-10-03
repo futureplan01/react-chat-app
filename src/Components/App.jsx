@@ -1,13 +1,12 @@
 import React, {Component} from 'react';
 import { BrowserRouter as Router} from 'react-router-dom';
-import { Link, Switch, Route } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import Home from "./MyComponents/HomePage";
-import { Redirect } from "react-router";
 import axios from "axios";
 import Login from "./MyComponents/Login";
 import SignUp from "./MyComponents/SignUp";
 
-class App extends React.Component {
+class App extends Component {
   constructor() {
     super();
     this.state = {

@@ -1,5 +1,4 @@
-import React, { Component } from "react";
-import Styles from "./Style.css";
+import React from "react";
 
 function Footer(props) {
     return <div className="header">

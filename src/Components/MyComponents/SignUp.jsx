@@ -1,8 +1,6 @@
 import React, { Component } from "react";
-import fetch from "isomorphic-fetch";
 import { Redirect } from "react-router";
 import Header from "./HeadTail/Header";
-import styles from "./Login.css";
 
 class SignUp extends Component {
   constructor() {
@@ -19,19 +17,6 @@ class SignUp extends Component {
     // 
     handleSubmit(events){
         events.preventDefault();
-        const value = { userName: events.target.name.value, email: events.target.email.value, password: events.target.password.value };
-        return fetch("/api/users/register", {
-          method: "POST",
-          body: JSON.stringify(value),
-          headers: {
-            "Content-Type": "application/json"
-          }
-        }).then(res => {
-            this.setState({ loginRedirect: true });
-            return res;
-          })
-          .catch(err => console.log(err));
-
     }
 
     render(){

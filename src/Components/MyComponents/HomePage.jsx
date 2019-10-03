@@ -3,7 +3,6 @@ import ChatHeader from './ChatApp/Header'
 import ChatScreen from "./ChatApp/ChatScreen";
 import Submit from "./ChatApp/Submit";
 import Header from "./HeadTail/Header";
-import Message from './ChatApp/Message';
 import openSocket from "socket.io-client";
 
 const socket = openSocket(window.location.href);
@@ -26,7 +25,7 @@ class HomePage extends Component {
     socket.on("user", (data) => {
       let lastIndex = this.state.messages.length - 1;
 
-      if( this.state.messages.length == 0 || data.index !== this.state.messages[lastIndex].index && data.message === this.state.messages[lastIndex].message ){
+      if( this.state.messages.length === 0 || (data.index !== this.state.messages[lastIndex].index && data.message === this.state.messages[lastIndex].message )){
         console.log(data);
         this.state.messages.push(data);
         this.setState({ message: data});

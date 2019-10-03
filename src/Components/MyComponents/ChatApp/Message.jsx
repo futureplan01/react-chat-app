@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 
+// Looks like it can be made into a function
 class Message extends Component{
     render() {
         //
@@ -20,3 +21,4 @@ class Message extends Component{
     }
 }
 
+export default Message
