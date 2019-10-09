@@ -23,11 +23,9 @@ class App extends Component {
     this.setState({ name: user, isAuth: true});
   }
   getAuth(){
-    console.log('getting auth');
     return this.state.isAuth;
   }
   unAuth(){
-    console.log("Auth is: " + this.state.isAuth);
     this.setState({isAuth: false});
   }
   checkSession() {

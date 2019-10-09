@@ -1,3 +1,25 @@
+/*CONFIGURE BY COMPONENT*/
+
+body{
+    background-color: rgb(35, 61, 77);
+    min-height: 4em;
+    min-width: 5em;
+}
+
+/*Default Color*/
+h1,h2,h3,h4,h5{
+    color: white;
+}
+
+.orange{
+   color: rgb(254, 127, 45);
+}
+
+#header {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Oxygen',sans-serif;
+}
 
 h1{
     font-size: 3em;

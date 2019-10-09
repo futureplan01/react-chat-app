@@ -53,10 +53,11 @@ class Login extends Component {
     if (this.state.problem) {
       error = <Problem/>;
     }
-    return( <div>
+    return( 
+    <div>
       <Header name='Sign Up'/>
       <center id = 'loginForm'>
-          <h1>Lets Start Batting</h1>
+          <h1>Lets Start Chatting</h1>
           {error}
           <form className="form" onSubmit={this.handleSubmit}>
           <input className ='input' type="text" name="email" placeholder="Email" />
