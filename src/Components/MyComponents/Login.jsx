@@ -10,13 +10,15 @@ class Login extends Component {
     this.state = {
       userName: "",
       email: "",
+      password: "",
       signUp: false,
       error: '',
       menu: false
     };
     
+    this.handleEmail = this.handleEmail.bind(this);
+    this.handlePassword = this.handlePassword.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleSignUp = this.handleSignUp.bind(this);
     this.handleMenu = this.handleMenu.bind(this);
     this.handleCarousel = this.handleCarousel.bind(this);
   }
@@ -50,6 +52,14 @@ class Login extends Component {
         images[currentImageCounter].classList.remove("stackImage"); 
     }
   }
+
+  handleEmail(event){
+    this.setState({email: event.target.email});
+  }
+  handlePassword(event){
+    this.setState({password: event.password});
+  }
+
   handleMenu(event){
       if(this.state.menu === false)
           this.setState({menu: true})
@@ -140,12 +150,12 @@ class Login extends Component {
 
 				<div className = "textbox">
 					<i className="fas fa-user"></i>
-                    <input type = "text" placeholder="Username" name = "" value = ""/>
+          <input type = "text" placeholder="Email" name = "email" value = {this.state.email} onChange={this.handleEmail}/>
 				</div>
 
 				<div className = "textbox">
 					<i className="fas fa-lock"></i>
-					<input type = "password" placeholder="Password" name = "" value = ""/>
+					<input type = "password" placeholder="Password" name = "" value = {this.state.password} onChange = {this.handlePassword}/>
 				</div>
 
 				<input className = "btn" type = "button" name = "" value = "Sign-in"/>
