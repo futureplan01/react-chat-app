@@ -3,26 +3,42 @@ import axios from "axios";
 import { Redirect } from "react-router";
 
 class Header extends Component {
+
+  constructor (){
+    super();
+    this.state= {menu: false};
+    this.handleMenu = this.handleMenu.bind(this);
+  }
+  handleMenu(event){
+    if(this.state.menu === false)
+        this.setState({menu: true})
+    
+    else
+        this.setState({menu:false})
+  }
   render() {
+      let cssMenu = '';
+      if(this.state.menu){
+        cssMenu = "showing";
+      }
+      return(
       <header>
       <nav>
         <div className = 'menu-icon' onClick ={this.handleMenu}>
           <i className="fas fa-bars fa-2x"></i>
         </div>
-
         <h1 className = "logo">
           majestic vibes
         </h1>	
-
         <div className = "menu">
           <ul className = {cssMenu}>
             <li><a href = "#">Sign-Up</a></li>
             <span className = "divider"></span>
-                          <li><a herf = "#">Log-In</a></li>
-                      </ul>
+            <li><a herf = "#">Log-In</a></li>
+          </ul>
         </div>		 	
       </nav>
-    </header>
+    </header>);
   }
 } 
 

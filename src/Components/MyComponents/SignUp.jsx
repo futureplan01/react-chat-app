@@ -23,7 +23,6 @@ class SignUp extends Component {
           return <Redirect push to="/" />;
         }
         return (<div>
-            <Header name='Log In'/>
             <center className="signUp">
               <h1>Sign Up</h1>
               <form className="form" onSubmit={this.handleSubmit}>

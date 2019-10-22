@@ -3,7 +3,7 @@ import { BrowserRouter as Router} from 'react-router-dom';
 import { Switch, Route } from "react-router-dom";
 import Home from "./MyComponents/HomePage";
 import axios from "axios";
-import Login from "./MyComponents/Login";
+import LoginContainer from "./MyComponents/LoginContainer";
 import SignUp from "./MyComponents/SignUp";
 
 class App extends Component {
@@ -40,7 +40,7 @@ class App extends Component {
         <Router>
         <Switch>
           <Route exact path="/" render={() => 
-            <Login getUser={this.getUser} isAuth= {this.state.isAuth} get={this.getAuth} checkSession = {this.checkSession} name="" />
+            <LoginContainer getUser={this.getUser} isAuth= {this.state.isAuth} get={this.getAuth} checkSession = {this.checkSession} name="" />
           }/>
           <Route path="/Home" render={() => <Home name={this.state.name} unAuth = {this.unAuth} checkSession = {this.checkSession} isAuth={this.state.isAuth} />} />
           <Route path="/SignUp" component={SignUp} />
