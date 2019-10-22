@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router";
-import Header from "./HeadTail/Header";
 
 class SignUp extends Component {
   constructor() {
