@@ -38,7 +38,6 @@ class HomePage extends Component {
       
   });
     this.props.checkSession();
-    let invokeUnAuth = this.props.unAuth;
     return (<div>
       <ChatHeader name={this.props.name} />
       <ChatScreen name={this.props.name} messages = {this.state.messages}/>

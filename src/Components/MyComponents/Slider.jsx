@@ -1,5 +1,4 @@
 import React, {Component} from "react";
-import { tsThisType } from "@babel/types";
 
 class Slider extends Component{
 

@@ -4,7 +4,7 @@ import Header from "./Header";
 import Slider from "./Slider";
 import Login from "./Login";
 
-function LoginContainer() {
+function SignUpContainer() {
     return( 
     <div  className = "container">
       <Header/>
@@ -13,4 +13,4 @@ function LoginContainer() {
 		</div>);
 }
 
-export default LoginContainer;
+export default SignUpContainer;

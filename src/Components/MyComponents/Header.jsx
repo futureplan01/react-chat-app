@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import axios from "axios";
-import { Redirect } from "react-router";
+import { Link } from "react-router-dom";
 
 class Header extends Component {
 
@@ -32,9 +31,9 @@ class Header extends Component {
         </h1>	
         <div className = "menu">
           <ul className = {cssMenu}>
-            <li><a href = "#">Sign-Up</a></li>
+            <li><Link to ='/SignUp'>Sign-Up</Link></li>
             <span className = "divider"></span>
-            <li><a herf = "#">Log-In</a></li>
+            <li><Link to ='/'>Log-In</Link></li>
           </ul>
         </div>		 	
       </nav>
