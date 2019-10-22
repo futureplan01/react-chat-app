@@ -4,8 +4,8 @@ import ChatScreen from "./ChatApp/ChatScreen";
 import Submit from "./ChatApp/Submit";
 import openSocket from "socket.io-client";
 
-const socket = openSocket(window.location.href);
-
+//const socket = openSocket(window.location.href);
+let socket ;
 class HomePage extends Component {
   constructor(){
     super();

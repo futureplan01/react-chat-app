@@ -15,8 +15,8 @@ class App extends Component {
           <Route exact path="/" render={() => 
             <LoginContainer />
           }/>
-          <Route path="/Home" render={() => <Home  />}/>
-          <Route path="/SignUp" component={SignUp} />
+          <Route exact path="/Home" render={() => <Home  />}/>
+          <Route exact path="/SignUp" component={SignUp} />
         </Switch>
         </Router>);
   }
