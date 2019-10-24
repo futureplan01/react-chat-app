@@ -4,7 +4,7 @@ import ChatScreen from "./ChatApp/ChatScreen";
 import Submit from "./ChatApp/Submit";
 import openSocket from "socket.io-client";
 
-const socket = openSocket(window.location.href);
+const socket = openSocket('https://majestic-vibes.herokuapp.com/');
 
 class HomePage extends Component {
   constructor(){
