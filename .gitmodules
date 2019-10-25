@@ -1,0 +1,3 @@
+[submodule "react-chat-server"]
+	path = react-chat-server
+	url = https://github.com/futureplan01/react-chat-server.git
