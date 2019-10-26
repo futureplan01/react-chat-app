@@ -14,18 +14,18 @@ class Login extends Component{
         this.handleSubmit = this.handleSubmit.bind(this);
     }
     handleEmail(event){
-       this.setState({email: event.target.email});
+       this.setState({email: event.target.value});
     }
     handlePassword(event){
-       this.setState({password: event.password});
+       this.setState({password: event.value});
     }
     handleSubmit(events) {
         events.preventDefault();
     
         axios
-          .post("/api/users/login", {
-            email: events.target.email.value,
-            password: events.target.password.value
+          .post("http://localhost:7555/Login", {
+            email: this.state.email,
+            password: this.state.password
           })
           .then(res => {
             this.props.getUser(res.data.user.userName);
@@ -43,13 +43,13 @@ class Login extends Component{
             <h1>Login</h1>
             <div className = "textbox">
                 <i className="fas fa-user"></i>
-                <input type = "text" placeholder="Email" name = "email" value = {this.state.email} onChange={this.handleEmail}/>
+                <input type = "text" placeholder="Email" name = "email" onChange={this.handleEmail}/>
             </div>
             <div className = "textbox">
                 <i className="fas fa-lock"></i>
-                <input type = "password" placeholder="Password" name = "" value = {this.state.password} onChange = {this.handlePassword}/>
+                <input type = "password" placeholder="Password"  onChange = {this.handlePassword}/>
             </div>
-            <input className = "btn" type = "button" name = "" value = "Sign-in"/>
+            <input className = "btn" type = "button" value = "Sign-in" onClick = {this.handleSubmit}/>
         </form>
         </div>);
       }
