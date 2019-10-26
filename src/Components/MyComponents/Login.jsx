@@ -23,7 +23,7 @@ class Login extends Component{
         events.preventDefault();
     
         axios
-          .post("http://localhost:7555/Login", {
+          .post("https://majestic-vibes.herokuapp.com/Login", {
             email: this.state.email,
             password: this.state.password
           })
