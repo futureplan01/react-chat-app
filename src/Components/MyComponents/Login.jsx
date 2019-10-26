@@ -23,8 +23,7 @@ class Login extends Component{
         events.preventDefault();
     
         axios
-          .post("https://majestic-vibes.herokuapp.com/Login", {
-            crossDomain: true,
+          .post("http://localhost:7555/Login", {
             email: this.state.email,
             password: this.state.password
           })
