@@ -23,13 +23,13 @@ class Login extends Component{
         events.preventDefault();
     
         axios
-          .post("http://localhost:7555/Login", {
+          .post("https://majestic-vibes.herokuapp.com/Login", {
+            crossDomain: true,
             email: this.state.email,
             password: this.state.password
           })
           .then(res => {
-            this.props.getUser(res.data.user.userName);
-            this.setState({ login: true});
+              console.log(res);
           })
           .catch(err => {
             this.setState({ problem: true});
