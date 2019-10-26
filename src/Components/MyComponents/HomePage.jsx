@@ -21,7 +21,8 @@ class HomePage extends Component {
 
   
   render() {
-    socket.on("user", (data) => {
+    return (<div> Hi</div>);
+    /*socket.on("user", (data) => {
       let lastIndex = this.state.messages.length - 1;
 
       if( this.state.messages.length === 0 || (data.index !== this.state.messages[lastIndex].index && data.message === this.state.messages[lastIndex].message )){
@@ -43,7 +44,9 @@ class HomePage extends Component {
       <ChatScreen name={this.props.name} messages = {this.state.messages}/>
       <Submit name={this.props.name} addMessage = {this.addMessage} socket={socket}/>
     </div>);
+  }*/
   }
 }
+
 
 export default HomePage;
