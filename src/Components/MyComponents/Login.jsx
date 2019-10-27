@@ -7,7 +7,8 @@ class Login extends Component{
         this.state = {
             email: "",
             password: "",
-            error: "",
+            isError: false,
+
         }
         this.handleEmail = this.handleEmail.bind(this);
         this.handlePassword = this.handlePassword.bind(this);
@@ -17,34 +18,44 @@ class Login extends Component{
        this.setState({email: event.target.value});
     }
     handlePassword(event){
-       this.setState({password: event.value});
+       this.setState({password: event.target.value});
     }
     handleSubmit(events) {
         events.preventDefault();
     
         axios
-          .post("https://majestic-vibes.herokuapp.com/Login", {
+          .post("http://localhost:7555/Login", {
             email: this.state.email,
             password: this.state.password
           })
           .then(res => {
-              console.log(res);
+              console.log(res.data);
           })
           .catch(err => {
-            this.setState({ problem: true});
             console.log(err);
+            this.setState({isError: true});
           });
       }
       render(){
+          let ErrorMessage;
+          if(this.state.isError){
+              console.log("Hello mah");
+              ErrorMessage = <div className = "red">
+                  You Entered The Wrong Email/Password
+              </div>
+          }
+
         return (
             <div className = "login-box">
         <form>
             <h1>Login</h1>
+            {ErrorMessage}
             <div className = "textbox">
                 <i className="fas fa-user"></i>
                 <input type = "text" placeholder="Email" name = "email" onChange={this.handleEmail}/>
             </div>
             <div className = "textbox">
+                
                 <i className="fas fa-lock"></i>
                 <input type = "password" placeholder="Password"  onChange = {this.handlePassword}/>
             </div>
