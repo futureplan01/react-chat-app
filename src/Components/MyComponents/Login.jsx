@@ -1,5 +1,7 @@
 import React, {Component} from "react";
 import axios from "axios";
+import {Redirect} from 'react-router-dom';
+
 
 class Login extends Component{
     constructor(){
@@ -8,6 +10,7 @@ class Login extends Component{
             email: "",
             password: "",
             isError: false,
+            isAuth: false,
 
         }
         this.handleEmail = this.handleEmail.bind(this);
@@ -24,15 +27,16 @@ class Login extends Component{
         events.preventDefault();
     
         axios
-          .post("http://localhost:7555/Login", {
+          .post("https://majestic-vibes.herokuapp.com/Login", {
             email: this.state.email,
             password: this.state.password
           })
           .then(res => {
               console.log(res.data);
+              this.setState({isAuth: true});
+              
           })
           .catch(err => {
-            console.log(err);
             this.setState({isError: true});
           });
       }
@@ -44,6 +48,10 @@ class Login extends Component{
                   You Entered The Wrong Email/Password
               </div>
           }
+
+        if(this.state.isAuth){
+            return (<Redirect to ='/Home'/>)
+        }
 
         return (
             <div className = "login-box">

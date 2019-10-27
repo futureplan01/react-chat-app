@@ -4,9 +4,9 @@ import ChatScreen from "./ChatApp/ChatScreen";
 import Submit from "./ChatApp/Submit";
 import openSocket from "socket.io-client";
 
-let socket;
+let socket = openSocket('https://majestic-vibes.herokuapp.com/');
 
-class HomePage extends Component {
+class Home extends Component {
   constructor(){
     super();
     this.state = { message: "", messages: []};
@@ -21,8 +21,7 @@ class HomePage extends Component {
 
   
   render() {
-    return (<div> Hi</div>);
-    /*socket.on("user", (data) => {
+    socket.on("user", (data) => {
       let lastIndex = this.state.messages.length - 1;
 
       if( this.state.messages.length === 0 || (data.index !== this.state.messages[lastIndex].index && data.message === this.state.messages[lastIndex].message )){
@@ -38,15 +37,13 @@ class HomePage extends Component {
       }
       
   });
-    this.props.checkSession();
     return (<div>
       <ChatHeader name={this.props.name} />
       <ChatScreen name={this.props.name} messages = {this.state.messages}/>
       <Submit name={this.props.name} addMessage = {this.addMessage} socket={socket}/>
     </div>);
-  }*/
   }
 }
 
 
-export default HomePage;
+export default Home;
