@@ -11,13 +11,12 @@ class Login extends Component{
             password: "",
             isError: false,
             isAuth: false,
-
         }
         this.handleEmail = this.handleEmail.bind(this);
         this.handlePassword = this.handlePassword.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
-    handleEmail(event){
+    handleEmail(event){   
        this.setState({email: event.target.value});
     }
     handlePassword(event){
@@ -42,6 +41,8 @@ class Login extends Component{
       }
       render(){
           let ErrorMessage;
+          let zIndex = "user-box";
+          
           if(this.state.isError){
               console.log("Hello mah");
               ErrorMessage = <div className = "red">
@@ -52,11 +53,15 @@ class Login extends Component{
         if(this.state.isAuth){
             return (<Redirect to ='/Home'/>)
         }
+          
+        if(this.props.getMenuState()){
+            zIndex = "user-box z-index";
+        }  
 
         return (
-            <div className = "login-box">
+        <div className = {zIndex}>
         <form>
-            <h1>Login</h1>
+            <h1 className = "text-header">Login</h1>
             {ErrorMessage}
             <div className = "textbox">
                 <i className="fas fa-user"></i>
@@ -66,8 +71,9 @@ class Login extends Component{
                 
                 <i className="fas fa-lock"></i>
                 <input type = "password" placeholder="Password"  onChange = {this.handlePassword}/>
+                
             </div>
-            <input className = "btn" type = "button" value = "Sign-in" onClick = {this.handleSubmit}/>
+            <button className = "btn" onClick = {this.handleSubmit}>Log-In</button>
         </form>
         </div>);
       }

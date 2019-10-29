@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router";
+import ImagePreview from "./ImagePreview";
 
 class SignUp extends Component {
   constructor() {
@@ -19,24 +20,50 @@ class SignUp extends Component {
     }
 
     render(){
+        
+        let zIndex = "user-box";
+        
         if (this.state.loginRedirect) {
           return <Redirect push to="/" />;
         }
-        return (<div>
-            <center className="signUp">
-              <h1>Sign Up</h1>
-              <form className="form" onSubmit={this.handleSubmit}>
-                <input className="input" type="text" name="name" placeholder="UserName" />
-                <br />
-                <input className="input" type="text" name="email" placeholder="Email" />
-                <br />
-                <input className="input" type="password" name="password" placeholder="Password" />
-                <br />
-                <button id="signUpBtn" className="input">
-                  Submit
-                </button>
-              </form>
-            </center>
+        
+        if(this.props.getMenuState()){
+            zIndex = "user-box z-index";
+        }  
+        
+        return (
+            <div className = {zIndex}>
+					
+			<form>
+
+				<h1 className = "text-header">Sign-Up</h1>
+                
+                <ImagePreview/>
+
+				<div className = "textbox">
+					<i className="fas fa-user"></i>
+					<input type = "text" name = "username" placeholder = "Username" required/>
+                </div>
+
+				<div className = "textbox">
+					<i className="fas fa-lock"></i>
+					<input type = "password" placeholder="Password" name = "" value = "" pattern = ".{5,10}" required title = "5-10 characters required" required/>
+                    </div>
+
+				<div className = "textbox">
+					<i className="fas fa-check-circle"></i>
+					<input type = "password" placeholder="Confirm Password" name = "" value = "" required/>
+                    </div>
+
+				<div className = "textbox">
+					<i className="fas fa-envelope"></i>
+					<input type = "email" placeholder = "E-mail" name = "" value = "" required/>
+                    </div>
+
+				<button className = "btn">Sign-Up</button>
+
+                </form>
+				
         </div>);
     }
 }

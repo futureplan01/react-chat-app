@@ -2,15 +2,15 @@ import React from "react";
 
 import Header from "./Header";
 import Slider from "./Slider";
-import Login from "./Login";
+import SignUp from "./SignUp";
 
-function SignUpContainer() {
+function SignUpContainer(props) {
     return( 
     <div  className = "container">
-      <Header/>
+      <Header handleMenu = {props.handleMenu} getMenuState = {props.getMenuState}/>
       <Slider/>
-      <Login/>
-		</div>);
+      <SignUp handleMenu = {props.handleMenu} getMenuState = {props.getMenuState}/>
+    </div>);
 }
 
 export default SignUpContainer;

@@ -4,12 +4,12 @@ import Header from "./Header";
 import Slider from "./Slider";
 import Login from "./Login";
 
-function LoginContainer() {
+function LoginContainer(props) {
     return( 
     <div  className = "container">
-      <Header/>
+      <Header handleMenu = {props.handleMenu}  getMenuState = {props.getMenuState}/>
       <Slider/>
-      <Login/>
+      <Login handleMenu = {props.handleMenu}  getMenuState = {props.getMenuState}/>
 		</div>);
 }
 
