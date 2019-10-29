@@ -38,7 +38,7 @@ class SignUp extends Component {
         events.preventDefault();
     
         axios
-        .post("http://localhost:7555/SignUp", {
+        .post("https://majestic-vibe.herokuapp.com/SignUp", {
             email: this.state.email,
             password: this.state.password
         })
