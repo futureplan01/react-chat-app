@@ -9,8 +9,7 @@ class Login extends Component{
         this.state = {
             email: "",
             password: "",
-            isError: false,
-            isAuth: false,
+            isError: false
         }
         this.handleEmail = this.handleEmail.bind(this);
         this.handlePassword = this.handlePassword.bind(this);
@@ -26,13 +25,14 @@ class Login extends Component{
         events.preventDefault();
     
         axios
-          .post("https://majestic-vibes.herokuapp.com/Login", {
+          .post("http://localhost:7555/Login", {
             email: this.state.email,
             password: this.state.password
           })
           .then(res => {
               console.log(res.data);
-              this.setState({isAuth: true});
+              sessionStorage.setItem('token',res.data.token);
+              this.props.Authenticate();
               
           })
           .catch(err => {
@@ -44,13 +44,12 @@ class Login extends Component{
           let zIndex = "user-box";
           
           if(this.state.isError){
-              console.log("Hello mah");
               ErrorMessage = <div className = "red">
                   You Entered The Wrong Email/Password
               </div>
           }
 
-        if(this.state.isAuth){
+        if(this.props.isAuthenticated()){
             return (<Redirect to ='/Home'/>)
         }
           

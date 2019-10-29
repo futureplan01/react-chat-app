@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import ChatHeader from './ChatApp/Header'
 import ChatScreen from "./ChatApp/ChatScreen";
 import Submit from "./ChatApp/Submit";
+import {Redirect} from 'react-router-dom';
 import openSocket from "socket.io-client";
 
 let socket = openSocket('https://majestic-vibes.herokuapp.com/');
@@ -21,6 +22,9 @@ class Home extends Component {
 
   
   render() {
+    if(!this.props.isAuthenticated()){
+      return (<Redirect to ='/'/>)
+    }
     socket.on("user", (data) => {
       let lastIndex = this.state.messages.length - 1;
 

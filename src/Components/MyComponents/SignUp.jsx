@@ -1,22 +1,56 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router";
 import ImagePreview from "./ImagePreview";
+import axios from 'axios';
 
 class SignUp extends Component {
   constructor() {
     super();
       this.state = { 
-        user: "", 
+        username: "", 
         email: "",
         password: "", 
+        confirm: "",
         loginRedirect: false, 
         problemOccured: false 
-    };
-    this.handleSubmit = this.handleSubmit.bind(this);
+      }
+      this.handleUserName = this.handleUserName.bind(this);
+      this.handleEmail = this.handleEmail.bind(this);
+      this.handlePassword = this.handlePassword.bind(this);
+      this.handleConfirm = this.handleConfirm.bind(this);
+      this.handleSubmit = this.handleSubmit.bind(this);
+    
   }
-    // 
-    handleSubmit(events){
+    handleUserName(event){
+        this.setState({username: event.target.value});
+    }
+    handleEmail(event){   
+        this.setState({email: event.target.value});
+    }
+    handlePassword(event){
+        this.setState({password: event.target.value});
+    }
+    handleConfirm(event){
+        this.setState({confirm: event.target.value});
+    }
+
+    handleSubmit(events) {
         events.preventDefault();
+    
+        axios
+        .post("http://localhost:7555/SignUp", {
+            email: this.state.email,
+            password: this.state.password
+        })
+        .then(res => {
+            console.log(res.data);
+            sessionStorage.setItem('token',res.data.token);
+            this.props.Authenticate();
+            
+        })
+        .catch(err => {
+            this.setState({isError: true});
+        });
     }
 
     render(){
@@ -47,17 +81,17 @@ class SignUp extends Component {
 
 				<div className = "textbox">
 					<i className="fas fa-lock"></i>
-					<input type = "password" placeholder="Password" name = "" value = "" pattern = ".{5,10}" required title = "5-10 characters required" required/>
+					<input type = "password" placeholder="Password" name = ""  pattern = ".{5,10}" required title = "5-10 characters required" required/>
                     </div>
 
 				<div className = "textbox">
 					<i className="fas fa-check-circle"></i>
-					<input type = "password" placeholder="Confirm Password" name = "" value = "" required/>
+					<input type = "password" placeholder="Confirm Password" name = ""  required/>
                     </div>
 
 				<div className = "textbox">
 					<i className="fas fa-envelope"></i>
-					<input type = "email" placeholder = "E-mail" name = "" value = "" required/>
+					<input type = "email" placeholder = "E-mail" name = "" required/>
                     </div>
 
 				<button className = "btn">Sign-Up</button>

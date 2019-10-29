@@ -1,16 +1,13 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
-class Header extends Component {
+class NavBar extends Component {
     
 
   render() {
-      
-      let zIndex = "";
       let showing = "";
       
       if(this.props.getMenuState()){
-         zIndex = "z-index";
          showing = "showing";   
       }
       
@@ -34,4 +31,4 @@ class Header extends Component {
   }
 } 
 
-export default Header;
+export default NavBar;
