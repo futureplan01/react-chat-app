@@ -76,22 +76,22 @@ class SignUp extends Component {
 
 				<div className = "textbox">
 					<i className="fas fa-user"></i>
-					<input type = "text" name = "username" placeholder = "Username" required/>
+					<input type = "text" name = "username" placeholder = "Username" required onChange={handleUserName}/>
                 </div>
 
 				<div className = "textbox">
 					<i className="fas fa-lock"></i>
-					<input type = "password" placeholder="Password" name = ""  pattern = ".{5,10}" required title = "5-10 characters required" required/>
+					<input type = "password" placeholder="Password" name = ""  required title = "5-10 characters required" required onChange={handlePassword}/>
                     </div>
 
 				<div className = "textbox">
 					<i className="fas fa-check-circle"></i>
-					<input type = "password" placeholder="Confirm Password" name = ""  required/>
+					<input type = "password" placeholder="Confirm Password" onChange={handleConfirm} name = ""  required/>
                     </div>
 
 				<div className = "textbox">
 					<i className="fas fa-envelope"></i>
-					<input type = "email" placeholder = "E-mail" name = "" required/>
+					<input type = "email" placeholder = "E-mail" name = "" required onChange={handleEmail}/>
                     </div>
 
 				<button className = "btn">Sign-Up</button>

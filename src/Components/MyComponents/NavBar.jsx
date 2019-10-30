@@ -11,6 +11,7 @@ class NavBar extends Component {
          showing = "showing";   
       }
       
+      
       return(
       <header>
       <nav>

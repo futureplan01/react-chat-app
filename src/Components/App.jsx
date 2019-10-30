@@ -14,6 +14,7 @@ class App extends Component {
       isAuthenticated: false
     };
     this.handleMenu = this.handleMenu.bind(this);
+    this.logOut = this.logOut.bind(this);
     this.getMenuState = this.getMenuState.bind(this); 
     this.tokenValid = this.tokenValid.bind(this);
     this.isAuthenticated = this.isAuthenticated.bind(this);
@@ -33,13 +34,16 @@ class App extends Component {
     }else{
       console.log("No Token Found!");
     }
-
   }
   Authenticate(){
     this.setState({isAuthenticated:true});
   }
   isAuthenticated(){
     return this.state.isAuthenticated;
+  }
+  logOut(){
+    sessionStorage.removeItem('token');
+    this.setState({isAuthenticated: false});
   }
   handleMenu(event){
     if(this.state.menu === false)
@@ -64,7 +68,7 @@ class App extends Component {
           <LoginContainer Authenticate = {this.Authenticate} isAuthenticated = {this.isAuthenticated} handleMenu = {this.handleMenu} getMenuState = {this.getMenuState}/>
         }/>
         <Route exact path = '/Home' render={()=>
-          <HomeContainer isAuthenticated = {this.isAuthenticated} handleMenu = {this.handleMenu} getMenuState = {this.getMenuState}/>
+          <HomeContainer logOut={this.logOut} isAuthenticated = {this.isAuthenticated} handleMenu = {this.handleMenu} getMenuState = {this.getMenuState}/>
         }/>
         <Route exact path="/SignUp" render={() => 
           <SignUpContainer handleMenu = {this.handleMenu}  getMenuState = {this.getMenuState}/>
