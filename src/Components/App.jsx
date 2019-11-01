@@ -71,7 +71,7 @@ class App extends Component {
           <HomeContainer logOut={this.logOut} isAuthenticated = {this.isAuthenticated} handleMenu = {this.handleMenu} getMenuState = {this.getMenuState}/>
         }/>
         <Route exact path="/SignUp" render={() => 
-          <SignUpContainer handleMenu = {this.handleMenu}  getMenuState = {this.getMenuState}/>
+          <SignUpContainer isAuthenticated = {this.isAuthenticated}  handleMenu = {this.handleMenu}  getMenuState = {this.getMenuState}/>
         }/>
       </Switch>);
   }
