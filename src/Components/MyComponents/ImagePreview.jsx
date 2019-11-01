@@ -14,14 +14,22 @@ class ImagePreview extends Component {
         
         //ensure a file was selected 
         if (imgBtn.files && imgBtn.files[0]) {
-            var imageFile = imgBtn.files[0];
-            var reader = new FileReader();    
+            let imageFile = imgBtn.files[0];
+
+            let reader = new FileReader();    
             reader.onload = function (e) {
                 //set the image data as source
                 document.querySelector('.profile-pic').setAttribute('src', e.target.result);
             }
 
             reader.readAsDataURL(imageFile);
+            let formData = new FormData();
+            formData.append(
+                'image',
+                imageFile,
+                imageFile.name
+            )
+            this.props.getImageFile(formData);
         }
      
     }

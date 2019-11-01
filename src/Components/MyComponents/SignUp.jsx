@@ -7,6 +7,7 @@ class SignUp extends Component {
   constructor() {
     super();
       this.state = { 
+        image : '',
         username: "", 
         email: "",
         password: "", 
@@ -19,7 +20,7 @@ class SignUp extends Component {
       this.handlePassword = this.handlePassword.bind(this);
       this.handleConfirm = this.handleConfirm.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
-    
+      this.getImageFile = this.getImageFile.bind(this);
   }
     handleUserName(event){
         this.setState({username: event.target.value});
@@ -33,12 +34,16 @@ class SignUp extends Component {
     handleConfirm(event){
         this.setState({confirm: event.target.value});
     }
-
+    getImageFile(file){
+        console.log("got image",file);
+        this.setState({image: file});
+    }
     handleSubmit(events) {
         events.preventDefault();
     
         axios
         .post("https://majestic-vibe.herokuapp.com/SignUp", {
+            image: this.state.image,
             email: this.state.email,
             password: this.state.password
         })
@@ -69,11 +74,8 @@ class SignUp extends Component {
             <div className = {zIndex}>
 					
 			<form>
-
-				<h1 className = "text-header">Sign-Up</h1>
-                
-                <ImagePreview/>
-
+				<h1 className = "text-header">Sign-Up</h1> 
+                <ImagePreview getImageFile = {this.getImageFile}/>
 				<div className = "textbox">
 					<i className="fas fa-user"></i>
 					<input type = "text" name = "username" placeholder = "Username" required onChange={this.handleUserName}/>
