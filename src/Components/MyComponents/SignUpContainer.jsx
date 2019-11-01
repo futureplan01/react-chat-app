@@ -7,7 +7,7 @@ import SignUp from "./SignUp";
 function SignUpContainer(props) {
     return( 
     <div  className = "container">
-      <NavBar handleMenu = {props.handleMenu} getMenuState = {props.getMenuState}/>
+      <NavBar handleMenu = {props.handleMenu} isAuthenticated ={props.isAuthenticated} getMenuState = {props.getMenuState}/>
       <Slider/>
       <SignUp handleMenu = {props.handleMenu} getMenuState = {props.getMenuState}/>
     </div>);

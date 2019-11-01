@@ -7,7 +7,7 @@ import Home from "./Home";
 function HomeContainer(props) {
     return( 
     <div  className = "container">
-      <NavBar logOut={this.logOut} handleMenu={props.handleMenu}  getMenuState={props.getMenuState}/>
+      <NavBar isAuthenticated ={props.isAuthenticated} logOut={props.logOut} handleMenu={props.handleMenu}  getMenuState={props.getMenuState}/>
       <Slider/>
       <Home  isAuthenticated ={props.isAuthenticated} handleMenu = {props.handleMenu}  getMenuState = {props.getMenuState}/>
 	</div>);

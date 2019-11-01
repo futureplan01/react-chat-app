@@ -7,7 +7,7 @@ import Login from "./Login";
 function LoginContainer(props) {
     return( 
     <div  className = "container">
-      <NavBar handleMenu = {props.handleMenu}  getMenuState = {props.getMenuState}/>
+      <NavBar handleMenu = {props.handleMenu} isAuthenticated ={props.isAuthenticated} getMenuState = {props.getMenuState}/>
       <Slider/>
       <Login Authenticate = {props.Authenticate} isAuthenticated ={props.isAuthenticated} handleMenu = {props.handleMenu}  getMenuState = {props.getMenuState}/>
 		</div>);

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 
 class ImagePreview extends Component {
 
@@ -36,7 +35,7 @@ class ImagePreview extends Component {
         <div>
           
             <div className = "profile-container">
-                  <img className = "profile-pic"  src = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" onClick = {this.clickButton}/>
+                  <img className = "profile-pic" alt="default pic"  src = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" onClick = {this.clickButton}/>
             </div>
 
             <input className = "img-btn" type = "file" name = "profile-photo" placeholder = "Photo" required = "" capture onChange = {this.previewProfileImage}/>
