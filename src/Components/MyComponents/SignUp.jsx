@@ -40,16 +40,16 @@ class SignUp extends Component {
     }
     handleSubmit(events) {
         events.preventDefault();
-    
+        let config = {
+            headers: {
+                'accept': 'application/json',
+                'Content-Type':`multipart/form-data; boundary=${this.state.image._boundary}`,
+            }
+        }
         axios
-        .post("https://majestic-vibe.herokuapp.com/SignUp", {
-            image: this.state.image,
-            email: this.state.email,
-            password: this.state.password
-        })
+        .post(this.props.url + 'uploadImage',this.state.image)
         .then(res => {
             console.log(res.data);
-            sessionStorage.setItem('token',res.data.token);
             this.props.Authenticate();
             
         })
@@ -73,30 +73,30 @@ class SignUp extends Component {
         return (
             <div className = {zIndex}>
 					
-			<form>
+			<form encType="multipart/form-data">
 				<h1 className = "text-header">Sign-Up</h1> 
                 <ImagePreview getImageFile = {this.getImageFile}/>
 				<div className = "textbox">
 					<i className="fas fa-user"></i>
-					<input type = "text" name = "username" placeholder = "Username" required onChange={this.handleUserName}/>
+					<input type = "text" name = "username" placeholder = "Username"  onChange={this.handleUserName}/>
                 </div>
 
 				<div className = "textbox">
 					<i className="fas fa-lock"></i>
-					<input type = "password" placeholder="Password" name = ""  title = "5-10 characters required" required onChange={this.handlePassword}/>
+					<input type = "password" placeholder="Password" name = ""  title = "5-10 characters required"  onChange={this.handlePassword}/>
                     </div>
 
 				<div className = "textbox">
 					<i className="fas fa-check-circle"></i>
-					<input type = "password" placeholder="Confirm Password" onChange={this.handleConfirm} name = ""  required/>
+					<input type = "password" placeholder="Confirm Password" onChange={this.handleConfirm} name = ""  />
                     </div>
 
 				<div className = "textbox">
 					<i className="fas fa-envelope"></i>
-					<input type = "email" placeholder = "E-mail" name = "" required onChange={this.handleEmail}/>
+					<input type = "email" placeholder = "E-mail" name = ""  onChange={this.handleEmail}/>
                     </div>
 
-				<button className = "btn">Sign-Up</button>
+				<button className = "btn" onClick={this.handleSubmit}>Sign-Up</button>
 
                 </form>
 				

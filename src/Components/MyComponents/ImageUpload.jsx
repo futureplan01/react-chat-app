@@ -16,8 +16,8 @@ class ImageUpload extends Component {
     }
     UploadHandler = () => {
         const fd = new FormData();
-        fd.append('image',this.state.file,this.state.file.name);
-
+        fd.append('myImage',this.state.file,this.state.file.name);
+        this.props.getImageFile(fd);
     }
 
     render(){

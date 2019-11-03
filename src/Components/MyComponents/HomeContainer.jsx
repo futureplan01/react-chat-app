@@ -9,7 +9,7 @@ function HomeContainer(props) {
     <div  className = "container">
       <NavBar isAuthenticated ={props.isAuthenticated} logOut={props.logOut} handleMenu={props.handleMenu}  getMenuState={props.getMenuState}/>
       <Slider/>
-      <Home  isAuthenticated ={props.isAuthenticated} handleMenu = {props.handleMenu}  getMenuState = {props.getMenuState}/>
+      <Home  url ={props.url} isAuthenticated ={props.isAuthenticated} handleMenu = {props.handleMenu}  getMenuState = {props.getMenuState}/>
 	</div>);
 }
 

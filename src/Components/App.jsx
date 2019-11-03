@@ -21,6 +21,8 @@ class App extends Component {
     this.Authenticate = this.Authenticate.bind(this);   
   }
 
+  
+
   tokenValid(){
     let token = sessionStorage.getItem('token');
     if(token){
@@ -62,16 +64,18 @@ class App extends Component {
   }
   render() {
 
+    let url = 'https://majestic-vibes.herokuapp.com/'
+
     return (
       <Switch>
         <Route exact path="/" render={() => 
-          <LoginContainer Authenticate = {this.Authenticate} isAuthenticated = {this.isAuthenticated} handleMenu = {this.handleMenu} getMenuState = {this.getMenuState}/>
+          <LoginContainer url={url} Authenticate = {this.Authenticate} isAuthenticated = {this.isAuthenticated} handleMenu = {this.handleMenu} getMenuState = {this.getMenuState}/>
         }/>
         <Route exact path = '/Home' render={()=>
-          <HomeContainer logOut={this.logOut} isAuthenticated = {this.isAuthenticated} handleMenu = {this.handleMenu} getMenuState = {this.getMenuState}/>
+          <HomeContainer url ={url} logOut={this.logOut} isAuthenticated = {this.isAuthenticated} handleMenu = {this.handleMenu} getMenuState = {this.getMenuState}/>
         }/>
         <Route exact path="/SignUp" render={() => 
-          <SignUpContainer isAuthenticated = {this.isAuthenticated}  handleMenu = {this.handleMenu}  getMenuState = {this.getMenuState}/>
+          <SignUpContainer url={url} isAuthenticated = {this.isAuthenticated}  handleMenu = {this.handleMenu}  getMenuState = {this.getMenuState}/>
         }/>
       </Switch>);
   }

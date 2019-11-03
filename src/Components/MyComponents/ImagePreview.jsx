@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import FormData from 'form-data';
 
 class ImagePreview extends Component {
 
@@ -15,7 +16,6 @@ class ImagePreview extends Component {
         //ensure a file was selected 
         if (imgBtn.files && imgBtn.files[0]) {
             let imageFile = imgBtn.files[0];
-
             let reader = new FileReader();    
             reader.onload = function (e) {
                 //set the image data as source
@@ -23,13 +23,11 @@ class ImagePreview extends Component {
             }
 
             reader.readAsDataURL(imageFile);
-            let formData = new FormData();
-            formData.append(
-                'image',
-                imageFile,
-                imageFile.name
-            )
-            this.props.getImageFile(formData);
+            console.log(imageFile);
+            const fd = new FormData();
+            fd.append('myImage',imageFile);
+            console.log(fd);
+            this.props.getImageFile(fd);
         }
      
     }
@@ -46,7 +44,7 @@ class ImagePreview extends Component {
                   <img className = "profile-pic" alt="default pic"  src = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" onClick = {this.clickButton}/>
             </div>
 
-            <input className = "img-btn" type = "file" name = "profile-photo" placeholder = "Photo" required = "" capture onChange = {this.previewProfileImage}/>
+            <input className = "img-btn" type = "file" name = "myImage" placeholder = "Photo" required = "" capture onChange = {this.previewProfileImage}/>
           
         </div>  
      );
