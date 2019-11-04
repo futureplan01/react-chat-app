@@ -23,7 +23,6 @@ class Login extends Component{
     }
     handleSubmit(events) {
         events.preventDefault();
-    
         axios
           .post(this.props.url + 'Login', {
             email: this.state.email,

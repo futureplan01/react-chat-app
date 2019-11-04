@@ -64,7 +64,7 @@ class App extends Component {
   }
   render() {
 
-    let url = 'https://majestic-vibes.herokuapp.com/'
+    let url = 'http://localhost:7555/'
 
     return (
       <Switch>

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import FormData from 'form-data';
 
 class ImagePreview extends Component {
 
@@ -21,13 +20,8 @@ class ImagePreview extends Component {
                 //set the image data as source
                 document.querySelector('.profile-pic').setAttribute('src', e.target.result);
             }
-
             reader.readAsDataURL(imageFile);
-            console.log(imageFile);
-            const fd = new FormData();
-            fd.append('myImage',imageFile);
-            console.log(fd);
-            this.props.getImageFile(fd);
+            this.props.getImageFile(imageFile);
         }
      
     }

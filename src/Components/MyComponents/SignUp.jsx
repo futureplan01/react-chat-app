@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router";
 import ImagePreview from "./ImagePreview";
+import FormData from 'form-data';
 import axios from 'axios';
 
 class SignUp extends Component {
@@ -35,19 +36,18 @@ class SignUp extends Component {
         this.setState({confirm: event.target.value});
     }
     getImageFile(file){
-        console.log("got image",file);
         this.setState({image: file});
     }
     handleSubmit(events) {
         events.preventDefault();
-        let config = {
-            headers: {
-                'accept': 'application/json',
-                'Content-Type':`multipart/form-data; boundary=${this.state.image._boundary}`,
-            }
-        }
+        const fd = new FormData();
+
+        fd.append('myImage',this.state.image);
+        fd.append('email',this.state.email);
+        fd.append('password',this.state.password);
+
         axios
-        .post(this.props.url + 'uploadImage',this.state.image)
+        .post(this.props.url + 'uploadImage',fd)
         .then(res => {
             console.log(res.data);
             this.props.Authenticate();
