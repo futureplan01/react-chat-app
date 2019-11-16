@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router";
 import ImagePreview from "./ImagePreview";
+import storage from "../../Firebase/index";
 import FormData from 'form-data';
 import axios from 'axios';
 
