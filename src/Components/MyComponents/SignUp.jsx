@@ -43,7 +43,18 @@ class SignUp extends Component {
         events.preventDefault();
         const fd = new FormData();
 
-        fd.append('myImage',this.state.image);
+        let image = this.state.image;
+        console.log(storage);
+        
+
+        const uploadTask = storage.storage().ref(`images/${image.name}`).put(image)
+        .then((yes)=>{
+            console.log("I'm not to sure what's happening");
+            console.log(yes);
+        })
+
+        /*
+        //fd.append('myImage',this.state.image);
         fd.append('email',this.state.email);
         fd.append('password',this.state.password);
 
@@ -57,6 +68,7 @@ class SignUp extends Component {
         .catch(err => {
             this.setState({isError: true});
         });
+        */
     }
 
     render(){
